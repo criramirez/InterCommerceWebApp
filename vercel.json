@@ -1,6 +1,6 @@
 {
   "buildCommand": "ng build --configuration production",
-  "outputDirectory": "dist/InterCommerceWebApp",
+  "outputDirectory": "dist/InterCommerceWebApp/browser",
   "rewrites": [
     {
       "source": "/(.*)",
