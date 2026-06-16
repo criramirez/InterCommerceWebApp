@@ -1,0 +1,133 @@
+@use '../../styles/variables' as *;
+
+.product-card {
+    border-radius: 0.5rem;
+    // border: 1px solid $border-color;
+    box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(53 37 205 / 0.2), 0 0 #0000;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 0.5rem;
+
+    &.add {
+        background-color: $success-color-degrade;
+        box-shadow: 0 0 0 0px rgba(53, 37, 205, 0.2), 0 0 0 2px #0bda5b, 0 0 rgba(0, 0, 0, 0);
+    }
+
+    &.shop-version {
+        &.add {
+            background-color: $neutral-color;
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(53 37 205 / 0.2), 0 0 #0000;
+        }
+
+        .content-img-product {
+            display: none;
+        }
+
+        .discount {
+            display: none;
+        }
+
+        .product-info {
+
+            .discount-shop {
+                display: block;
+            }
+        }
+    }
+
+    .content-img-product {
+        background-color: $neutral-color;
+        border-radius: 0.5rem 0.5rem 0 0;
+
+        // border: 1px solid $border-color;
+        // width: 100%;
+        // height: 200px;
+        img {
+            width: 100%;
+        }
+    }
+
+    .discount {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: $white;
+        font-weight: 600;
+        background-color: $success-color;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    .product-info {
+        p {
+            margin: 0;
+            color: $black;
+
+            &.title {
+                font-size: 20px;
+                font-weight: 700;
+                color: $black;
+                height: 45px;
+                margin-bottom: 6px;
+                text-overflow: ellipsis;
+                // white-space: pre;
+                overflow: hidden;
+            }
+
+            &.price {
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 3px;
+                color: $black;
+
+                &.final {
+                    font-size: 20px;
+                    color: $tertiary-color;
+                }
+            }
+        }
+
+        .discount-shop {
+            display: none;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 3px;
+            p{
+                color: $success-color;
+            }
+        }
+    }
+
+    .ctas-product {
+        width: 100%;
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        a {
+            text-decoration: none;
+            color: $primary-color;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .box-add-cart {
+            p {
+                font-weight: 600;
+                color: $black;
+                font-size: 16px;
+            }
+
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &.with-item {
+                justify-content: space-between;
+            }
+        }
+    }
+}

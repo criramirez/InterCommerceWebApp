@@ -1,0 +1,55 @@
+@use '../../styles/variables' as *;
+
+.content-shopping-cart {
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+
+  .product-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .info-total {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+
+    .info {
+      width: 100%;
+
+      p {
+        &.big {
+          font-size: 30px;
+        }
+
+        &.green {
+          color: $success-color;
+        }
+
+        &.blue {
+          color: $primary-color;
+        }
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        color: $black;
+      }
+
+      .amount {
+        font-size: 28px;
+        font-weight: 700;
+        color: $black;
+      }
+    }
+  }
+}

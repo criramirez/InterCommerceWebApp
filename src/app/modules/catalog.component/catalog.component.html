@@ -1,0 +1,44 @@
+<div class="content-catalog">
+    <div class="search-box">
+        <div class="box-input">
+            <span class="material-symbols-outlined">
+                search
+            </span> <input #inputF type="text" placeholder="Search products..." />
+        </div>
+        <button class="secondary" (click)="filterProductsText()">Search</button>
+    </div>
+    <div class="categories-box">
+        <p>Categorias</p>
+        <div class="categories">
+            <button id="all" (click)="selCategory('')"
+                [class.active]="productService.productQuery.category == undefined">All products</button>
+            @for (category of productService.categoriesStore(); track $index) {
+            <button (click)="selCategory(category.slug)"
+                [class.active]="productService.productQuery.category == category.slug">{{category.name}}</button>
+            }
+        </div>
+    </div>
+    <div class="product-box">
+        @if (productService.loadingProducts()) {
+        <!-- skeletons -->
+        <div class="product-grid">
+            @for (i of [].constructor(productService.limit()); track $index) {
+            <div class="skeleton-card"></div>
+            }
+        </div>
+        } @else {
+        <div class="product-grid">
+            @for (product of productService.productsList(); track product.id) {
+            <app-product-card-component [product]="product"></app-product-card-component>
+            }
+            @if (productService.loadingMore()) {
+            @for (i of [].constructor(3); track $index) {
+            <div class="skeleton-card"></div>
+            }
+
+            }
+        </div>
+        }
+        <div #scrollSentinel></div>
+    </div>
+</div>

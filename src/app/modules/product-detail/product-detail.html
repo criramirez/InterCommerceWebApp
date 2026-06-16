@@ -1,0 +1,53 @@
+@if(productService.loadingProduct()){
+<div>
+    <p>Load product...</p>
+</div>
+}@else{
+@let product = productService.productStore();
+<div class="content-product-detail">
+    <div class="images">
+        <div class="main-image">
+            <img [src]="product?.images?.[0]" />
+        </div>
+        <div class="secondary-images">
+            <div class="content-secondary-images">
+                @for (image of product?.images; track $index) {
+                <div class="content-image">
+                    <img [src]="image" />
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="info-detail">
+        <h3>{{product?.title}}</h3>
+        <p class="desc">{{product?.description}}</p>
+        <div class="box-price">
+            <div class="price-detail">
+                <p class="price final">${{product?.finalPrice | number : '1.0-2'}}</p>
+                <p class="price"><s>${{product?.price | number : '1.0-2' }}</s></p>
+                <p class="discount">Discount {{product?.discountPercentage | number : '1.0-2'}}%</p>
+            </div>
+            @if(product?.quantity??0 > 0){
+            <p class="addCart">Producto en el carrito</p>
+            }
+            @if(product?.quantity??0 > 0){
+            <div class="box-add-cart">
+                <button (click)="shopService.addRemmoveQuantityProduct(product,false)" class="delete">Quitar</button>
+                <p>{{product?.quantity}}</p>
+                <button (click)="shopService.addRemmoveQuantityProduct(product,true)">Agregar</button>
+            </div>
+            }@else{
+            <button (click)="shopService.addRemmoveQuantityProduct(product,true)"><span
+                    class="material-symbols-outlined">
+                    add_shopping_cart
+                </span>Agregar producto</button>
+            }
+        </div>
+    </div>
+</div>
+}
+@if(productService.errorProduct()){
+<div>Product not found
+</div>
+}

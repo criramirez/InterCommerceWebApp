@@ -1,0 +1,190 @@
+@use '../../styles/variables' as *;
+
+.content-product-detail {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1rem;
+
+    @media (max-width: 600px) {
+        gap: 0.5rem;
+    }
+
+    .images {
+        width: 49%;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 0.5rem;
+            border: 2px solid $black;
+
+            @media (max-width: 600px) {
+                width: 50%;
+                margin: 0 auto;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .secondary-images {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+
+            .content-secondary-images {
+                position: relative;
+                overflow-x: auto;
+                max-width: 100%;
+                white-space: nowrap;
+                padding: 8px;
+
+                .content-image {
+                    width: 150px;
+                    border-radius: 0.5rem;
+                    border: 2px solid $black;
+
+                    @media (max-width: 600px) {
+                        width: 100px;
+                    }
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-detail {
+
+        width: 49%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-content: flex-start;
+
+        @media (max-width: 600px) {
+            width: 100%;
+        }
+
+        h3 {
+            width: 100%;
+            color: $black;
+            font-weight: 700;
+            font-size: 34px;
+
+            @media (max-width: 600px) {
+                font-size: 28px;
+                margin-bottom: 10px;
+            }
+        }
+
+
+
+        .desc {
+            width: 100%;
+            font-size: 18px;
+            line-height: 28px;
+
+            @media (max-width: 600px) {
+                width: 100%;
+            }
+        }
+
+        .box-price {
+            width: 100%;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 0 0px #fff, 0 0 0 calc(2px + 0px) rgb(53 37 205 / 0.2), 0 0 #0000;
+            background-color: $neutral-color;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+
+            @media (max-width: 600px) {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .price-detail {
+                display: flex;
+                gap: 1rem;
+                align-items: flex-end;
+            }
+
+            .price {
+                font-weight: 700;
+                font-size: 24px;
+
+                @media (max-width: 600px) {
+                    font-size: 18px;
+                }
+
+                &.final {
+                    font-size: 34px;
+                    color: $primary-color;
+
+                    @media (max-width: 600px) {
+                        font-size: 28px;
+                    }
+                }
+            }
+
+            .discount {
+                font-weight: 600;
+                background-color: $success-color;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                color: $white;
+
+                @media (max-width: 600px) {
+                    font-size: 13px;
+                }
+            }
+
+            .addCart {
+                width: 100%;
+                border-radius: 0.5rem;
+                background-color: $success-color-degrade;
+                font-size: 24px;
+                font-weight: 700;
+                padding: 1rem;
+                color: $white;
+
+                @media (max-width: 600px) {
+                    font-size: 20px;
+                }
+            }
+
+            .box-add-cart {
+                width: 100%;
+
+                p {
+                    font-weight: 600;
+                    color: $black;
+                    font-size: 24px;
+                }
+
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                justify-content: space-between;
+
+                button {
+                    max-width: 200px;
+
+                    @media (max-width: 600px) {
+                        max-width: 100px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+<div class="product-card" [class.shop-version]="shoppingVersion" [class.add]="product.quantity??0 > 0">
+    <div class="discount">
+        <p>{{product.discountPercentage | number : '1.0-2'}}%</p>
+    </div>
+    <div class="content-img-product">
+        <img [src]="product.thumbnail" />
+    </div>
+    <div class="product-info">
+        <p class="title">{{product.title}}</p>
+        <div>
+            <p class="price"><s>$ {{product.price | number : '1.0-2' }}</s></p>
+        </div>
+        <div class="discount-shop">
+            <p>Discount {{product.discountPercentage | number : '1.0-2'}}%</p>
+        </div>
+        <div>
+            @if(shoppingVersion){
+            <p class="price final">$ {{product.finalPrice | number : '1.0-2'}} * {{(product.quantity ?? 0)}}</p>
+            <p class="price final shop">$ {{(product.finalPrice ?? 0) * (product.quantity ?? 0)| number : '1.0-2'}}</p>
+            }@else{
+            <p class="price final">$ {{product.finalPrice | number : '1.0-2'}}</p>
+            }
+        </div>
+    </div>
+    <div class="ctas-product">
+        <a [routerLink]="['/product',product.id]">Ver detalles</a>
+        <div class="box-add-cart" [class.with-item]="product.quantity ?? 0 > 0">
+            @if(product.quantity ?? 0 > 0){
+            <button (click)="shopService.addRemmoveQuantityProduct(product,false)" class="small delete"><span
+                    class="material-symbols-outlined">remove</span></button>
+            <p>{{product.quantity}}</p>
+            }@else{
+            }
+            <button (click)="shopService.addRemmoveQuantityProduct(product,true)" class="small"><span
+                    class="material-symbols-outlined">add</span></button>
+        </div>
+    </div>
+    <!-- <button (click)="shopService.addRemmoveQuantityProduct(product,true)">Agregar producto</button> -->
+</div>

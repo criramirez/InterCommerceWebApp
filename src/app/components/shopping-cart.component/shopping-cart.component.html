@@ -1,0 +1,33 @@
+@if(shopService.shoppingCart().length > 0){
+<div class="content-shopping-cart">
+    <div class="product-grid">
+        @for (product of shopService.shoppingCart(); track $index) {
+        <app-product-card-component [product]="product" [shoppingVersion]="true"></app-product-card-component>
+        }
+    </div>
+    <button (click)="shopService.cleanShoppingCarts()" class="delete small"><span class="material-symbols-outlined">
+            delete
+        </span></button>
+    <div class="info-total">
+        <div class="info">
+            <p class="title">Subtotal</p>
+            <p class="amount">$ {{shopService.subtotal() | number : '1.0-2'}}</p>
+        </div>
+        <div class="info">
+            <p class="title green">Discounts</p>
+            <p class="amount green">$ {{shopService.total_discount() | number : '1.0-2'}}</p>
+        </div>
+        <div class="info">
+            <p class="title">Taxes</p>
+            <p class="amount">$ {{shopService.total_taxes() | number : '1.0-2'}}</p>
+        </div>
+        <div class="info">
+            <p class="title big blue">Total</p>
+            <p class="amount big blue">$ {{shopService.total() | number : '1.0-2'}}</p>
+        </div>
+    </div>
+</div>
+
+}@else{
+<h3>There are currently no articles</h3>
+}
