@@ -7,12 +7,19 @@
   gap: 1rem;
   width: 100%;
 
+  .box-delete {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .product-grid {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 1rem;
     padding: 0.5rem;
+    justify-content: center;
   }
 
   .info-total {
@@ -24,6 +31,8 @@
 
     .info {
       width: 100%;
+      display: flex;
+      justify-content: center;
 
       p {
         &.big {
@@ -40,6 +49,7 @@
       }
 
       .title {
+        width: 180px;
         font-size: 24px;
         font-weight: 700;
         color: $black;
@@ -49,6 +59,8 @@
         font-size: 28px;
         font-weight: 700;
         color: $black;
+        width: 150px;
+        text-align: end;
       }
     }
   }
