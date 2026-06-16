@@ -1,0 +1,10 @@
+{
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/inter-commerce-web-app",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
