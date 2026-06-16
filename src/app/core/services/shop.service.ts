@@ -18,7 +18,7 @@ export class ShopService {
     this.calculateValues();
   }
 
-  addRemmoveQuantityProduct(item: Product, add: boolean): void {
+  addRemmoveQuantityProduct(item: Product | null, add: boolean): void {
 
     if (!item) return;
     let current = this.shoppingCart().find(i => i.id === item.id);
